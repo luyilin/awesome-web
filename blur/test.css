@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrap {
+    /*width: 800px;*/
+    /*height: 700px;*/
+    width: 100%;
+    height: 100%; /*必须设置为100%,控制图片尺寸*/
+    position: fixed;
+    background: url('img/test.jpg') center top no-repeat;
+    background-size: 800px;
+}
+.wrap-text {
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -400px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+    z-index: 1;
+    padding: 30px;
+}
+.wrap-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+    filter: blur(5px);
+    z-index: -1;
+    margin: -30px;
+    background: url('img/test.jpg') center top no-repeat;
+    background-size: 800px;
+    background-attachment: fixed; /*图片拼接成功的关键*/
+}
+
+.wrap-text p {
+    color: #ccc;
+    text-indent: 2em;
+    line-height: 1.7;
+}
+
