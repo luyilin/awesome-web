@@ -9,7 +9,7 @@
     width: 100%;
     height: 100%; /*必须设置为100%,控制图片尺寸*/
     position: fixed;
-    background: url('img/test.jpg') center top no-repeat;
+    background: url('../img/test.jpg') center top no-repeat;
     background-size: 800px;
 }
 .wrap-text {
@@ -40,7 +40,7 @@
     filter: blur(5px);
     z-index: -1;
     margin: -30px;
-    background: url('img/test.jpg') center top no-repeat;
+    background: url('../img/test.jpg') center top no-repeat;
     background-size: 800px;
     background-attachment: fixed; /*图片拼接成功的关键*/
 }
