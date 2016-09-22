@@ -1,0 +1,8 @@
+.wrap {
+    background: url('http://csssecrets.io/images/code-pirate.svg') no-repeat #58a;
+    background-position: right 20px bottom 20px;
+    max-width: 10em;
+    min-height: 5em;
+    padding: 1em;
+    color: #fff;
+}
