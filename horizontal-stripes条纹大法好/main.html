@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linear-gradient</title>
+    <style>
+        div {
+            max-width: 16em;
+            margin: 1em;
+            padding: 1em;
+            color: #fff;
+            border-radius: .5em;
+            outline: .6em solid #655;
+            box-shadow: 0 0 0 .4em #655;
+            line-height: 1.5em;
+            float: left;
+        }
+        .div1 {
+            background: linear-gradient(#fb3 50%, #58a 0);
+            background-size: 100% 2em;
+        }
+        .div2 {
+            background: linear-gradient(to right, #fb3 50%, #58a 0);
+            background-size: 2em 100%;
+        }
+        .div3 {
+            background: linear-gradient(to bottom right, #fb3 50%, #58a 0);
+            /*background-size: 2em 2em; 不能生成细条纹*/
+        }
+        .div4 {
+            background: linear-gradient(45deg, #fb3 25%, #58a 0, #58a 50%, #fb3 0, #fb3 75%, #58a 0);
+            /*background: linear-gradient(45deg,  #58a 50%, #fb3 0);*/
+            /*background: linear-gradient(45deg,  #fb3 75%, #58a 0);*/
+            /*background: linear-gradient(45deg, #fb3 25%, #58a 0);*/
+            /*角度取值 45deg的整数倍 对角线条纹 三层色块叠加生成细条纹*/
+            background-size: 2.5em 2.5em;
+        }
+        .div5 {
+            background: repeating-linear-gradient(75deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+            /* 自由角度! repeating-linear-gradient 创建可重复的渐变*/
+        }
+        .div6 {
+            background: repeating-linear-gradient(75deg, #fb3, #fb3 10%, #58a 0, #58a 10.5%);
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
+    <div class="div2">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
+    <div class="div3">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
+    <div class="div4">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
+    <div class="div5">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
+    <div class="div6">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
+</body>
+</html>

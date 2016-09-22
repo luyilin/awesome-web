@@ -11,7 +11,34 @@
  * box-shadow: inset内阴影 水平阴影的位置 垂直阴影的位置 模糊距离 阴影尺寸 颜色,box-shadow text-shadow 都可添加多个阴影
  * background-attachment 属性设置背景图像是否固定或者随着页面的其余部分滚动 scroll默认,fixed,inherit
  * background-origin 属性规定 background-position 属性相对于什么位置来定位 border-box padding-box content-box
- * outline: 轮廓边框宽度 样式 颜色
+ * outline: 轮廓边框宽度 样式 颜色, outline要占据margin
+ * <linear-gradient> = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
+   <side-or-corner> = [left | right] || [top | bottom]
+   <color-stop> = <color> [ <length> | <percentage> ]?
+   取值：
+   下述值用来表示渐变的方向，可以使用角度或者关键字来设置：
+   <angle>：
+   用角度值指定渐变的方向（或角度）。
+   to left：
+   设置渐变为从右到左。相当于: 270deg
+   to right：
+   设置渐变从左到右。相当于: 90deg
+   to top：
+   设置渐变从下到上。相当于: 0deg
+   to bottom：
+   设置渐变从上到下。相当于: 180deg。这是默认值，等同于留空不写。
+   to bottom right 
+   渐变到右下 325deg
+   to bottom left 
+   渐变到左下 45deg 
+   <color-stop> 用于指定渐变的起止颜色：
+   <color>：
+   指定颜色。
+   <length>：
+   用长度值指定起止色位置。不允许负值
+   <percentage>：
+   用百分比指定起止色位置。定义止色位置去掉渐变效果,改为色块效果
+  * 
 
 ## css编码技巧
  * 提高代码可维护性要尽量减少改动时要编辑的地方
