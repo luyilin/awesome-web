@@ -1,10 +1,9 @@
 # awesome-css
-🍭css
 
-《揭秘css》小练习
+##《揭秘css》小练习
 
 ## css 属性
- * hsla(色调,饱和度,亮度,透明度) 色调0-360,0、360红色,120绿色,240蓝色,建议使用hsla而不是rgba,因为它的字符长度更短，重复率更低。
+ * hsla(色调,饱和度,亮度,透明度) 色调0-360,0、360红色,120绿色,240蓝色,注意饱和度必须写成百分比形式,建议使用hsla而不是rgba,因为它的字符长度更短，重复率更低。
  * currentColor 当前标签继承的文字颜色,适用于自动与文本颜色保持一致的属性
  * background-clip属性,border-box 背景剪裁至边框 padding-box 背景剪裁至内边框 content-box 背景剪裁至内容框
  * column-width 规定列的宽度 column-count规定分成几列 column-gap 规定列间距
@@ -12,6 +11,7 @@
  * background-attachment 属性设置背景图像是否固定或者随着页面的其余部分滚动 scroll默认,fixed,inherit
  * background-origin 属性规定 background-position 属性相对于什么位置来定位 border-box padding-box content-box
  * outline: 轮廓边框宽度 样式 颜色, outline要占据margin
+ * box-sizing: border-box; 盒模型的宽度=内容宽度+padding+border
  * <linear-gradient> = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
    <side-or-corner> = [left | right] || [top | bottom]
    <color-stop> = <color> [ <length> | <percentage> ]?
@@ -37,8 +37,15 @@
    <length>：
    用长度值指定起止色位置。不允许负值
    <percentage>：
-   用百分比指定起止色位置。定义止色位置去掉渐变效果,改为色块效果
-  * 
+   用百分比指定起止色位置。定义止色位置去掉渐变效果,改为实色块效果
+  * vh and vw
+    响应式web设计离不开百分比。但是，CSS百分比并不是所有的问题的最佳解决方案。CSS的宽度是相对于包含它的最近的父元素的宽度的。但是如果你就想用视口（viewpoint）的宽度或者高度，而不是父元素的，那该肿么办？ 这就是 vh 和 vw 单位为我们提供的。
+    1vh 等于1/100的视口高度。栗子：浏览器高度900px, 1 vh = 900px/100 = 9 px。同理，如果视口宽度未750， 1vw = 750px/100 = 7.5 px。
+    可以想象到的，他们有很多很多的用途。比如，我们用很简单的方法只用一行CSS代码就实现同屏幕等高的框。
+    .slide {
+        height: 100vh;
+    }
+    假设你需要一个和屏幕同宽的标题，你只要设置这个标题的font-size的单位为vw，那标题的字体大小就会自动根据浏览器的宽度进行缩放，以达到字体和viewport大小同步的效果，
 
 ## css编码技巧
  * 提高代码可维护性要尽量减少改动时要编辑的地方

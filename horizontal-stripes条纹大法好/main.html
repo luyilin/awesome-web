@@ -43,14 +43,41 @@
             background: repeating-linear-gradient(75deg, #fb3, #fb3 10%, #58a 0, #58a 10.5%);
             /* 漂亮的细条纹 bug有时候边缘有毛刺,,还不晓得咋个消除*/
         }
+        .div7 {
+            background: #58a;
+            background-image: repeating-linear-gradient(30deg, hsla(0,0%,100%,.1), hsla(0,0%,100%,.1) 5%,transparent 0,transparent 10%);
+            /*同色渐变,设置实色的背景色,创建阴影渐变实现同色渐变*/
+        }
+        .div8 {
+            background: #58a;
+            background-image: linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0),
+                                linear-gradient(90deg,hsla(0,0%,100%,.3) 1px, transparent 0),
+                                linear-gradient(white 2px,transparent 0),
+                                linear-gradient(90deg,white 2px,transparent 0);
+            background-size: 10px 10px,
+                             10px 10px,
+                             50px 50px,
+                             50px 50px;
+            /*分别设置四个背景的尺寸*/
+            background-position: -2px;
+        }
     </style>
 </head>
 <body>
-    <div class="div1">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
-    <div class="div2">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
-    <div class="div3">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
-    <div class="div4">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
-    <div class="div5">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
-    <div class="div6">Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.</div>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <div class="div5"></div>
+    <div class="div6"></div>
+    <div class="div7"></div>
+    <div class="div8"></div>
+    <div class="div9"></div>
+<script>
+    var div = document.getElementsByTagName('div');
+    for (var i=0; i < div.length; i++) {
+        div[i].innerText = "Maintaining five friendships promises to be a Herculean task, so I'm going to have to let one of you go.";
+    }
+</script>
 </body>
 </html>
