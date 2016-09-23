@@ -82,6 +82,6 @@
  * 有时代码易维护和代码量少不可兼得
    * e.g. 为元素添加一个10px的边框,但左侧不加边框 border-width: 10px 10px 10px 0;但若以后需要改动边框的宽度，需要同时改3个地方。那么以下这种方式可能更好 border-width: 10px; border-left: 0;
  * 当需要在较大分辨率下得到固定宽度,使用max-width
- * html元素也可分为替换元素和非替换元素。替换元素是浏览器根据标签的元素和属性判断显示的内容,如<input type="text"/>是文本输入框,type属性是radio时是单选按钮,<img src="">由标签元素img和属性决定显示的内容,如img input textarea select object都是替换元素,没有实质内容
+ * html元素也可分为替换元素和非替换元素。替换元素是浏览器根据标签的元素和属性判断显示的内容,如 `<input type="text"/>` 是文本输入框,type属性是radio时是单选按钮, `<img src="">`由标签元素img和属性决定显示的内容,如img input textarea select object都是替换元素,没有实质内容
  * 不要忘记为替换元素设置一个max-width:100%;
  * 如果需求背景图片铺满整个容器,使用background:cover 优于移动端通过css把大图缩小显示
