@@ -12,12 +12,12 @@
  * background-origin 属性规定 background-position 属性相对于什么位置来定位 border-box padding-box content-box
  * outline: 轮廓边框宽度 样式 颜色, outline要占据margin
  * box-sizing: border-box; 盒模型的宽度=内容宽度+padding+border
- *  <linear-gradient> = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
+ * linear-gradient = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
    <side-or-corner> = [left | right] || [top | bottom]
    <color-stop> = <color> [ <length> | <percentage> ]?
    取值：
    下述值用来表示渐变的方向，可以使用角度或者关键字来设置：
-   * <angle>：
+   * angle：
    用角度值指定渐变的方向（或角度）。
    to left：
    设置渐变为从右到左。相当于: 270deg
@@ -31,10 +31,10 @@
    渐变到右下 325deg
    to bottom left 
    渐变到左下 45deg 
-   * <color>：指定颜色。
-   <color-stop> 用于指定渐变的起止颜色：
-   * <length>：用长度值指定起止色位置。不允许负值
-   * <percentage>：用百分比指定起止色位置。定义止色位置去掉渐变效果,改为实色块效果
+   * color：指定颜色。
+   color-stop 用于指定渐变的起止颜色：
+   * length：用长度值指定起止色位置。不允许负值
+   * percentage：用百分比指定起止色位置。定义止色位置去掉渐变效果,改为实色块效果
  * vh and vw
    * 响应式web设计离不开百分比。但是，CSS百分比并不是所有的问题的最佳解决方案。CSS的宽度是相对于包含它的最近的父元素的宽度的。但是如果你就想用视口（viewpoint）的宽度或者高度，而不是父元素的，那该肿么办？ 这就是 vh 和 vw 单位为我们提供的。
    1vh 等于1/100的视口高度。栗子：浏览器高度900px, 1 vh = 900px/100 = 9 px。同理，如果视口宽度未750， 1vw = 750px/100 = 7.5 px。
