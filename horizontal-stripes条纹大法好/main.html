@@ -19,6 +19,7 @@
             background: linear-gradient(#fb3 50%, #58a 0);
             background-size: 100% 2em;
         }
+        /*如果将第二个颜色过渡点设置为0，那么它实际的位置会被浏览器重置为它前面颜色过渡点的最大位置，而这个位置恰恰就是我们需要的过渡位置。*/
         .div2 {
             background: linear-gradient(to right, #fb3 50%, #58a 0);
             background-size: 2em 100%;
@@ -40,7 +41,7 @@
             /* 自由角度! repeating-linear-gradient 创建可重复的渐变,第二个颜色要首先设置止色位置*/
         }
         .div6 {
-            background: repeating-linear-gradient(75deg, #fb3, #fb3 10%, #58a 0, #58a 10.5%);
+            background: repeating-linear-gradient(75deg, #fb3 0, #fb3 10%, #58a 0, #58a 10.5%);
             /* 漂亮的细条纹 bug有时候边缘有毛刺,,还不晓得咋个消除*/
         }
         .div7 {
@@ -56,6 +57,17 @@
         }
         .div9 {
             background: #58a;
+            background-image: linear-gradient(hsla(0,0%,100%,.3) 0.3px, transparent 0),
+                                linear-gradient(90deg, hsla(0,0%,100%,.3) 0.3px, transparent 0),
+                                linear-gradient(#fff 1px, transparent 0),
+                                linear-gradient(90deg, #fff 1px, transparent 0);
+            background-size: 30px 30px, 30px 30px, 60px 60px, 60px 60px;
+            background-position: -1px;
+        }
+        /*田字格*/
+
+        .div10 {
+            background: #58a;
             background-image: linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0),
                                 linear-gradient(90deg,hsla(0,0%,100%,.3) 1px, transparent 0),
                                 linear-gradient(white 2px,transparent 0),
@@ -66,11 +78,26 @@
                              50px 50px;
             /*分别设置四个背景的尺寸*/
             background-position: -2px;
-            /*同色格子条纹*/
         }
-        .div10 {
-            background: repeating-linear-gradient(#58a, #58a 10px, #fb3 0, #fb3 20px);
+        /*实验室格子条纹*/
+
+        .div11 {
+            background: repeating-linear-gradient(90deg, rgba(200,0,0,.4), rgba(200,0,0,.4) 20px, transparent 0, transparent 40px),
+                        repeating-linear-gradient(rgba(200,0,0,.4), rgba(200,0,0,.4) 20px, transparent 0, transparent 40px);
         }
+        /*复古格子*/
+
+        .div12 {
+            background: #58a;
+            background-image: linear-gradient(45deg, #fb3 25%, transparent 0),
+                        linear-gradient(45deg, transparent 75%, #fb3 0),
+                        linear-gradient(45deg, #fb3 25%, transparent 0),
+                        linear-gradient(45deg, transparent 75%, #fb3 0);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px, 20px 20px, 40px 40px;
+        }
+        /*棋盘格*/
+
     </style>
 </head>
 <body>
@@ -85,6 +112,7 @@
     <div class="div9"></div>
     <div class="div10"></div>
     <div class="div11"></div>
+    <div class="div12"></div>
 <script>
     var div = document.getElementsByTagName('div');
     for (var i=0; i < div.length; i++) {
