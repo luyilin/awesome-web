@@ -12,12 +12,13 @@
  * background-origin 属性规定 background-position 属性相对于什么位置来定位 border-box padding-box content-box
  * outline: 轮廓边框宽度 样式 颜色, outline会占据margin和border
  * box-sizing: border-box; 盒模型的宽度=内容宽度+padding+border
- * 线性渐变 <linear-gradient> = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
+
+ * linear-gradient = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
    <side-or-corner> = [left | right] || [top | bottom]
    <color-stop> = <color> [ <length> | <percentage> ]?
    取值：
    下述值用来表示渐变的方向，可以使用角度或者关键字来设置：
-   <angle>：
+   * angle：
    用角度值指定渐变的方向（或角度）。
    to left：
    设置渐变为从右到左。相当于: 270deg
@@ -31,23 +32,22 @@
    渐变到右下 325deg
    to bottom left 
    渐变到左下 45deg 
-   <color-stop> 用于指定渐变的起止颜色：
-   <color>：
-   指定颜色。
-   <length>：
-   用长度值指定起止色位置。不允许负值
-   <percentage>：
-   用百分比指定起止色位置。定义止色位置去掉渐变效果,改为实色块效果
-  * repeating-linear-gradient 实现可重复的渐变
-  * 径向渐变 radial-gradient 
-  * vh and vw
-    响应式web设计离不开百分比。但是，CSS百分比并不是所有的问题的最佳解决方案。CSS的宽度是相对于包含它的最近的父元素的宽度的。但是如果你就想用视口（viewpoint）的宽度或者高度，而不是父元素的，那该肿么办？ 这就是 vh 和 vw 单位为我们提供的。
-    1vh 等于1/100的视口高度。栗子：浏览器高度900px, 1 vh = 900px/100 = 9 px。同理，如果视口宽度未750， 1vw = 750px/100 = 7.5 px。
-    可以想象到的，他们有很多很多的用途。比如，我们用很简单的方法只用一行CSS代码就实现同屏幕等高的框。
+   * color：指定颜色。
+   color-stop 用于指定渐变的起止颜色：
+   * length：用长度值指定起止色位置。不允许负值
+   * percentage：用百分比指定起止色位置。定义止色位置去掉渐变效果,改为实色块效果
+ * vh and vw
+   * 响应式web设计离不开百分比。但是，CSS百分比并不是所有的问题的最佳解决方案。CSS的宽度是相对于包含它的最近的父元素的宽度的。但是如果你就想用视口（viewpoint）的宽度或者高度，而不是父元素的，那该肿么办？ 这就是 vh 和 vw 单位为我们提供的。
+   1vh 等于1/100的视口高度。栗子：浏览器高度900px, 1 vh = 900px/100 = 9 px。同理，如果视口宽度未750， 1vw = 750px/100 = 7.5 px。
+   * 可以想象到的，他们有很多很多的用途。比如，我们用很简单的方法只用一行CSS代码就实现同屏幕等高的框。
+   
+   ```
     .slide {
         height: 100vh;
     }
-    假设你需要一个和屏幕同宽的标题，你只要设置这个标题的font-size的单位为vw，那标题的字体大小就会自动根据浏览器的宽度进行缩放，以达到字体和viewport大小同步的效果，
+    ```
+    
+   * 假设你需要一个和屏幕同宽的标题，你只要设置这个标题的font-size的单位为vw，那标题的字体大小就会自动根据浏览器的宽度进行缩放，以达到字体和viewport大小同步的效果，
 
 ## css编码技巧
  * 提高代码可维护性要尽量减少改动时要编辑的地方
@@ -84,6 +84,6 @@
  * 有时代码易维护和代码量少不可兼得
    * e.g. 为元素添加一个10px的边框,但左侧不加边框 border-width: 10px 10px 10px 0;但若以后需要改动边框的宽度，需要同时改3个地方。那么以下这种方式可能更好 border-width: 10px; border-left: 0;
  * 当需要在较大分辨率下得到固定宽度,使用max-width
- * html元素也可分为替换元素和非替换元素。替换元素是浏览器根据标签的元素和属性判断显示的内容,如<input type="text"/>是文本输入框,type属性是radio时是单选按钮,<img src="">由标签元素img和属性决定显示的内容,如img input textarea select object都是替换元素,没有实质内容
+ * html元素也可分为替换元素和非替换元素。替换元素是浏览器根据标签的元素和属性判断显示的内容,如 `<input type="text"/>` 是文本输入框,type属性是radio时是单选按钮, `<img src="">`由标签元素img和属性决定显示的内容,如img input textarea select object都是替换元素,没有实质内容
  * 不要忘记为替换元素设置一个max-width:100%;
  * 如果需求背景图片铺满整个容器,使用background:cover 优于移动端通过css把大图缩小显示
