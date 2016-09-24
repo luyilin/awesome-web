@@ -37,7 +37,7 @@
         }
         .div5 {
             background: repeating-linear-gradient(75deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
-            /* 自由角度! repeating-linear-gradient 创建可重复的渐变*/
+            /* 自由角度! repeating-linear-gradient 创建可重复的渐变,第二个颜色要首先设置止色位置*/
         }
         .div6 {
             background: repeating-linear-gradient(75deg, #fb3, #fb3 10%, #58a 0, #58a 10.5%);
@@ -46,9 +46,15 @@
         .div7 {
             background: #58a;
             background-image: repeating-linear-gradient(30deg, hsla(0,0%,100%,.1), hsla(0,0%,100%,.1) 5%,transparent 0,transparent 10%);
-            /*同色渐变,设置实色的背景色,创建阴影渐变实现同色渐变*/
+            /*同色渐变,设置实色的背景色,创建阴影渐变实现可重复的同色渐变*/
         }
         .div8 {
+            background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,.8)),url('../img/test.jpg');
+            background-size: cover;
+            background-position: bottom;
+            /*渐变是支持透明度的，当你叠加多个背景层，可以使用这个在背景图片上来创建淡入淡出的效果.背景是由第一个指定的背景在最上面, 然后接下来的背景层叠起来. 通过这种方式的层叠，你像上面一样创造非常有创造力的效果。*/
+        }
+        .div9 {
             background: #58a;
             background-image: linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0),
                                 linear-gradient(90deg,hsla(0,0%,100%,.3) 1px, transparent 0),
@@ -60,6 +66,10 @@
                              50px 50px;
             /*分别设置四个背景的尺寸*/
             background-position: -2px;
+            /*同色格子条纹*/
+        }
+        .div10 {
+            background: repeating-linear-gradient(#58a, #58a 10px, #fb3 0, #fb3 20px);
         }
     </style>
 </head>
@@ -73,6 +83,8 @@
     <div class="div7"></div>
     <div class="div8"></div>
     <div class="div9"></div>
+    <div class="div10"></div>
+    <div class="div11"></div>
 <script>
     var div = document.getElementsByTagName('div');
     for (var i=0; i < div.length; i++) {
