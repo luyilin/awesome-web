@@ -10,7 +10,7 @@
  * box-shadow: inset内阴影 水平阴影的位置 垂直阴影的位置 模糊距离 阴影尺寸 颜色,box-shadow text-shadow 都可添加多个阴影
  * background-attachment 属性设置背景图像是否固定或者随着页面的其余部分滚动 scroll默认,fixed,inherit
  * background-origin 属性规定 background-position 属性相对于什么位置来定位 border-box padding-box content-box
- * outline: 轮廓边框宽度 样式 颜色, outline会占据margin和border
+ * outline: 轮廓边框宽度 样式 颜色, outline会占据margin
  * box-sizing: border-box; 盒模型的宽度=内容宽度+padding+border
 
  * linear-gradient = linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
@@ -37,7 +37,13 @@
    * length：用长度值指定起止色位置。不允许负值
    * percentage：用百分比指定起止色位置。定义止色位置去掉渐变效果,改为实色块效果
  * repeating-linear-gradient 实现可重复的渐变
- * 径向渐变 radial-gradient 
+ * 径向渐变 radial-gradient ``
+ 
+ ```
+ radial-gradient([<bg-position> || <angle>,]? [<shape> || <size>,]? <color-stop>, <color-stop>[, <color-stop>]*);
+ 径向渐变到目前还不支持Opera的内核浏览器
+ ```
+ 
  * vh and vw
    * 响应式web设计离不开百分比。但是，CSS百分比并不是所有的问题的最佳解决方案。CSS的宽度是相对于包含它的最近的父元素的宽度的。但是如果你就想用视口（viewpoint）的宽度或者高度，而不是父元素的，那该肿么办？ 这就是 vh 和 vw 单位为我们提供的。
    1vh 等于1/100的视口高度。栗子：浏览器高度900px, 1 vh = 900px/100 = 9 px。同理，如果视口宽度未750， 1vw = 750px/100 = 7.5 px。

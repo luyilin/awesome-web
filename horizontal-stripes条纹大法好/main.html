@@ -6,7 +6,7 @@
     <style>
         div {
             max-width: 16em;
-            margin: 1em;
+            margin: .8em;
             padding: 1em;
             color: #fff;
             border-radius: .5em;
@@ -33,11 +33,11 @@
             /*background: linear-gradient(45deg,  #58a 50%, #fb3 0);*/
             /*background: linear-gradient(45deg,  #fb3 75%, #58a 0);*/
             /*background: linear-gradient(45deg, #fb3 25%, #58a 0);*/
-            /*角度取值 45deg的整数倍 对角线条纹 三层色块叠加生成细条纹*/
+            /*角度取值 45deg的整数倍 对角线条纹 三层色块叠加生成细条纹,一共需要四个颜色过渡点*/
             background-size: 2.5em 2.5em;
         }
         .div5 {
-            background: repeating-linear-gradient(75deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
+            background: repeating-linear-gradient(155deg, #fb3, #fb3 15px, #58a 0, #58a 30px);
             /* 自由角度! repeating-linear-gradient 创建可重复的渐变,第二个颜色要首先设置止色位置*/
         }
         .div6 {
@@ -49,12 +49,14 @@
             background-image: repeating-linear-gradient(30deg, hsla(0,0%,100%,.1), hsla(0,0%,100%,.1) 5%,transparent 0,transparent 10%);
             /*同色渐变,设置实色的背景色,创建阴影渐变实现可重复的同色渐变*/
         }
+
         .div8 {
             background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,.8)),url('../img/test.jpg');
             background-size: cover;
             background-position: bottom;
             /*渐变是支持透明度的，当你叠加多个背景层，可以使用这个在背景图片上来创建淡入淡出的效果.背景是由第一个指定的背景在最上面, 然后接下来的背景层叠起来. 通过这种方式的层叠，你像上面一样创造非常有创造力的效果。*/
         }
+
         .div9 {
             background: #58a;
             background-image: linear-gradient(hsla(0,0%,100%,.3) 0.3px, transparent 0),
@@ -85,7 +87,7 @@
             background: repeating-linear-gradient(90deg, rgba(200,0,0,.4), rgba(200,0,0,.4) 20px, transparent 0, transparent 40px),
                         repeating-linear-gradient(rgba(200,0,0,.4), rgba(200,0,0,.4) 20px, transparent 0, transparent 40px);
         }
-        /*复古格子*/
+        /*复古格子  使用交叉重叠的水平和垂直条纹*/
 
         .div12 {
             background: #58a;
@@ -96,7 +98,46 @@
             background-size: 40px 40px;
             background-position: 0 0, 20px 20px, 20px 20px, 40px 40px;
         }
-        /*棋盘格*/
+        /*棋盘格
+        思路: 使用两个直角三角形拼接成正方形(原理是div3不成功的45度) 如果将三角形的长度减半，那么它们就会占有原来空间的八分之一，而不是二分之一，这种情况下只需将颜色过渡点的位置从 50% 调整为 25%,与上面道理相同，只需翻转颜色过渡点即可创建反方向的直接三角形,将第二个渐变的位置移动 background-size 的一半，就可以将它们合并成正方形了,这只是棋盘格的一半,创建一个完整的正方形棋盘格，只需重复一下上面的两条渐变，然后调整一下位置
+        */
+
+        .div13 {
+            background: #58a;
+            background-image: linear-gradient(45deg, #fb3 25%, transparent 0),
+                                linear-gradient(45deg, transparent 75%, #fb3 0),
+                                linear-gradient(135deg, #fb3 25%, transparent 0),
+                                linear-gradient(135deg, transparent 75%, #fb3 0);
+            background-size: 28.3px 28.3px;
+            background-position: 0 0, 28.3px 28.3px;
+            /*Todo: 是时候学sass了! 重复参数很多,应该写成变量,改一个参数要改4个地方。。 */
+        }
+        /*创建斜方格
+        套路是找出一个可repeat的图案,创建这个图案,本例创建一个大正方形,里面是一个以大正方形四边中点为顶点的正方形,可用45deg分别创建四个边缘正三角形,transparent为背景色,勾股定理算出需repeat的图案尺寸,成功!*/
+
+        .div14 {
+            background: #655;
+            background-image: radial-gradient(tan 20%, transparent 0),radial-gradient(tan 20%, transparent 0);
+            background-size: 30px 30px;
+            background-position: 0px 0px, 15px 15px;
+        }
+        /*波点,全名波尔卡圆点哈哈*/
+
+        .div15 {
+            border: 1em solid transparent;
+            background: linear-gradient(tan, tan) padding-box,
+                        repeating-linear-gradient(60deg, #58a, #58a 10px, #fff 0, #fff 11px);
+            padding: 0;
+        }
+        /*条纹边框*/
+
+        .div16 {
+            border: 16px solid transparent;
+            border-image: repeating-linear-gradient(60deg, #58a, #58a 10px, #fff 0, #fff 11px) 16 16 round;
+            padding: 0;
+            background: tan;
+        }
+        /* 更容易理解的条纹边框*/
 
     </style>
 </head>
@@ -113,6 +154,10 @@
     <div class="div10"></div>
     <div class="div11"></div>
     <div class="div12"></div>
+    <div class="div13"></div>
+    <div class="div14"></div>
+    <div class="div15"></div>
+    <div class="div16"></div>
 <script>
     var div = document.getElementsByTagName('div');
     for (var i=0; i < div.length; i++) {
