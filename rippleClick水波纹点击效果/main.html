@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水波纹点击效果</title>
+    <style>
+        * {
+            margin: 0;
+            font-size: 24px;
+        }
+        .h-btn {
+            width: 120px;
+            height: 60px;
+            margin: 30px;
+            background-color: rgb(255,187,51);
+            /*color: rgb(205,137,1);*/
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .wave {
+            position: absolute;
+            border-radius: 100%;
+            animation: wave .75s ease-out both;
+            pointer-events: none; /*禁用鼠标事件*/
+        }
+        @-webkit-keyframes wave {
+            0% {
+                -webkit-transform: scale(0);
+            }
+            100% {
+                -webkit-transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="h-btn">Tiger ^_- </button>
+<script src="../js/jquery.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
