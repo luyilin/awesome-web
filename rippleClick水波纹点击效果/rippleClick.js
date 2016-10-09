@@ -16,7 +16,7 @@ $(function () {
         var x = e.pageX || e.left;
         var y = e.pageY || e.top;
         var rippleWrap = $('<div class="ripple-big"></div><div class="ripple-small"></div>');
-        rippleWrap.appendTo($('body')).css({
+        rippleWrap.appendTo(body).css({
             left: x - 25,
             top: y - 25
         });
