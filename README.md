@@ -1,4 +1,4 @@
-# awesome-css
+# awesome-web
 
 ##《揭秘css》小练习
 
