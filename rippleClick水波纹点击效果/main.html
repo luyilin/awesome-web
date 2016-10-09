@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>水波纹点击效果</title>
+    <title>按钮上的水波纹点击效果</title>
     <style>
         * {
             margin: 0;
@@ -32,12 +32,16 @@
             both 向前和向后填充模式都被应用。*/
             pointer-events: none; /*禁用鼠标事件*/
             z-index: -1;
+            /* 为了使点击效果出现在.h-btn下面,设置z-index: -1 ;为不使其隐藏在.h-btn后面,设置.h-btn的 z-index: 1; */
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+            -ms-transform: scale(0);
+            -o-transform: scale(0);
+            transform: scale(0);
+            /* 提取相同部分,减少动画部分代码量 */
         }
         @-webkit-keyframes wave {
-            0% {
-                -webkit-transform: scale(0);
-            }
-            100% {
+            to {
                 -webkit-transform: scale(2);
                 opacity: 0;
             }

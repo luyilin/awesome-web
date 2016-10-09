@@ -63,7 +63,7 @@
     * 代码中使用这个API，就是告诉浏览器希望执行一个动画，让浏览器在下一个动画帧安排一次网页重绘。
     * requestAnimationFrame的优势，在于充分利用显示器的刷新机制，比较节省系统资源。显示器有固定的刷新频率（60Hz或75Hz），也就是说，每秒最多只能重绘60次或75次，requestAnimationFrame的基本思想就是与这个刷新频率保持同步，利用这个刷新频率进行页面重绘。此外，使用这个API，一旦页面不处于浏览器的当前标签，就会自动停止刷新。这就节省了CPU、GPU和电力。
     * 不过有一点需要注意，requestAnimationFrame是在主线程上完成。这意味着，如果主线程非常繁忙，requestAnimationFrame的动画效果会大打折扣。
-    * requestAnimationFrame使用一个回调函数作为参数。这个回调函数会在浏览器重绘之前调用。
+    * requestAnimationFrame 使用一个回调函数作为参数。这个回调函数会在浏览器重绘之前调用。
     * 目前，主要浏览器Firefox 23 / IE 10 / Chrome / Safari）都支持这个方法。可以用下面的方法，检查浏览器是否支持这个API。如果不支持，则自行模拟部署该方法。
     
     ```
@@ -96,6 +96,70 @@
    * forwards 当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。
    * backwards 在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）
    * both 向前和向后填充模式都被应用。
+  
+ * $('body').on('mousedown', '.h-btn', function(e) {})
+   * VS $('.h-btn').on('mousedown', function(e) {}) 第一种方法可以获取到js 动态创建的.h-btn元素,而第二种方法只能获取已有的.h-btn元素
+   
+ * $(function(){}) 等价于 $(document).ready(function(){}); 表示文档结构已经加载完成（不包含图片等非文字媒体文件)
+ * 浏览器对于Javascript的运行有两大特性：
+   * 载入后马上执行
+   * 执行时会阻塞页面后续的内容（包括页面的渲染、其它资源的下载）。
+   * 如果有多个js文件被引入,这些js文件被被串行地载入，并依次执行。
+     * 所以，如果你的javascript想操作后面的DOM元素，基本上来说，浏览器都会报错说对象找不到。因为Javascript执行时，后面的HTML被阻塞住了，DOM树时还没有后面的DOM结点。所以程序也就报错了。
+     
+ * js加载总结
+   
+   ```
+   <html> 
+   <head>
+      <title>Script Example</title> 
+   </head>
+   <body>
+       <div>
+       <script type="text/javascript">
+           alert("今天的日期是： " + (new Date()).toDateString());
+       </script> 
+       </div>
+   </body> 
+   </html>
+   ```
+   
+   * 当浏览器遇到一个<script>标签时，正如上面的HTML页面那样，没办法知道Javascript是不是在div标签中添加或者删除内容，这样浏览器就停止，运行完当前的脚本，然后再继续执行下面的内容。当然使用外链也是这样的过程，遇到src外链Javascript代码，浏览器也是首先加载这个外部Javascript文件，然后解析运行此Javascript代码，至于什么时候执行，完全要下载此文件需要多久的时间。
+   
+   ```
+   <html> 
+   <head>
+       <script type="text/javascript" src="file1.js"></script>
+       <script type="text/javascript" src="file2.js"></script>
+       <script type="text/javascript" src="file3.js"></script>
+       <link rel="stylesheet" type="text/css" href="styles.css">
+   </head>
+   <body>
+       <div>
+           这是Javascript文件引入的例子。
+       </div>
+   </body> 
+   </html>
+   ```
+   
+   * 脚本位置 这样的写法理论上是没有任何问题的，但是这里就存在了性能和体验的问题。
+   * 上面的代码加载了3个外部文件，每个文件在加载的过程中阻塞了页面的解析，浏览器只有等待它们下载并运行了Javascript代码之后，页面才能继续，这我们在上面已经提到过了。最致命的问题就是，把Javascript文件放在顶部，在加载Javascript文件比较慢的时候会出现空白页，以至于用户看不到页面，更不要说交互网页，推荐的办法就是，把所有的Javascript文件，包括外链的文件挡在<body>标签底部位置，减少对整个页面加载的影响。
+   
+   * 延迟脚本 <script>标签的defer属性 async和defer的相同点是采用并行下载，在下载的过程中都是不会产生阻塞。区别在于执行时机，async是加载完成后自动执行，而defer需要等待页面完成后执行。
+   * 动态创建script标签
+   * lazyload库
+   
+   * 将所有的<script>标签放置在页面底部，紧靠body标签的上方，这些方法可以保证页面在脚本运行之前完成解析。讲脚本打包，尽量合并页面的Javascript文件，文件越少，页面的加载速度就会越快，无论是内联的还是外链的Javascript文件。
+   
+ * <label> 标签为 input 元素定义标注。
+   * label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。
+     <label> 标签的 for 属性可把 label 绑定到另外一个元素, for 属性应当与相关元素的 id 属性相同。
+ * user-select：none | text | all | element css3属性 默认text
+    none：文本不能被选择
+    text：可以选择文本
+    all：当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。
+    element：可以选择文本，但选择范围受元素边界的约束
+   
 
 ## css编码技巧
  * 提高代码可维护性要尽量减少改动时要编辑的地方

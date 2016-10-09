@@ -1,24 +1,58 @@
 $(function () {
     var count = 0;
     var maxCount = 0;
-    var curCount = $('.current-count span');
-    var rippleClick = function (e) {
-        var x = e.pageX;
-        var y = e.pageY;
-        var rippleWrap = $('<div class="ripple-big"></div><div class="ripple-small"></div>')
-        rippleWrap.appendTo('body').css({
+    var countText = $('.current-count span');
+    var maxCountText = $('.max-count span');
+    var body = $('body');
+    var wrapWidth = body.width(),
+        wrapHeight = body.height();
+    var setting = {
+        click: true,
+        mousemove: false,
+        randomColor: false,
+        auto: false
+    };
+    var ripple = function (e) {
+        var x = e.pageX || e.left;
+        var y = e.pageY || e.top;
+        var rippleWrap = $('<div class="ripple-big"></div><div class="ripple-small"></div>');
+        rippleWrap.appendTo($('body')).css({
             left: x - 25,
             top: y - 25
         });
-        curCount.text(++count);
-        maxCount = (count > maxCount) ? count : maxCount;
-        $('.max-count span').text(maxCount);
+        if (setting.randomColor) {
+            var randomColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+            rippleWrap.css("border-color", randomColor);
+        }
+        countText.text(++count);
+        maxCount = count > maxCount ? count : maxCount;
+        maxCountText.text(maxCount);
         setTimeout(function () {
             rippleWrap.remove();
-            curCount.text(--count);
+            countText.text(--count);
         }, 2200);
     };
-    $('body').on('click', function (e) {
-        rippleClick(e);
+
+    var auto = function () {
+        if (setting.auto) {
+            ripple({
+                left: Math.random() * wrapWidth,
+                top: Math.random() * wrapHeight
+            });
+        }
+        requestAnimationFrame(auto);
+    };
+    auto();
+
+    $(document).on('change', 'input', function () {
+        setting[this.id] = this.checked;
+    });
+
+    body.on('click', function (e) {
+        if (!setting.click) return;
+        ripple(e);
+    }).on('mousemove', function (e) {
+        if (!setting.mousemove) return;
+        ripple(e);
     })
 });

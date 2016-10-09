@@ -5,10 +5,17 @@
 html, body {
     width: 100%;
     height: 100%;
+    /*必须设置html body这俩都是100%*/
 }
 body {
     background-color: #655;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
+/* animation */
 .ripple-big, .ripple-small {
     position: absolute;
     width: 50px;
@@ -23,6 +30,8 @@ body {
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0);
+    z-index: -1;
+    /* 这个很关键,checkout setting时,显示的波纹在下层不会影响点击选择*/
 }
 .ripple-small {
     -webkit-animation-delay: .3s;
@@ -41,6 +50,8 @@ body {
         opacity: 0;
     }
 }
+
+/* count */
 .count-wrap {
     position: absolute;
     top: 50%;
@@ -55,4 +66,18 @@ body {
     font-weight: bold;
     font-size: 2.5em;
     line-height: 1.5em;
+    cursor: default;
+}
+
+/* setting */
+.set-wrap {
+    color: #fff;
+    font-size: 1.1em;
+    position: absolute;
+    top: 1.3em;
+    left: 2em;
+}
+label {
+    margin: 0 0.1em 0 0.5em;
+    cursor: pointer;
 }
