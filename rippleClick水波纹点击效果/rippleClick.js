@@ -21,8 +21,9 @@ $(function () {
             top: y - 25
         });
         if (setting.randomColor) {
-            var randomColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
-            rippleWrap.css("border-color", randomColor);
+            var borderColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+            // var borderColor = randomColor({luminosity: 'light'}); // 这个更漂亮
+            rippleWrap.css("border-color", borderColor);
         }
         countText.text(++count);
         maxCount = count > maxCount ? count : maxCount;
