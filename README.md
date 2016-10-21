@@ -159,7 +159,42 @@
     text：可以选择文本
     all：当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。
     element：可以选择文本，但选择范围受元素边界的约束
+  
+ * img属于行内替换元素。height/width/padding/margin均可用。效果等于块元素。
+   行内非替换元素，例如, height/width/padding top、bottom/margin top、bottom均无效果。只能用padding left、right改变宽度。
+   行内元素设置width无效，height无效(可以设置line-height)，margin上下无效，padding上下无效 padding左右有效
    
+ * a标签包裹img产生4px间隙的问题：
+   图片文字等inline元素默认是和父级元素的baseline对齐的，而baseline又和父级底边有一定距离（这个距离和 font-size，font-family 相关），所以设置 vertical-align:top/bottom/text-top/text-bottom 都可以避免这种情况出现。其他的block元素中包含img也会有这个现象。
+   或设置a标签的父元素line-height: 0;
+   或设置img display: block也变成块级元素
+ * -webkit-touch-callout 是一个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。
+   当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。在iOS上，当你触摸并按住触摸的目标，比如一个链接，Safari浏览器将显示链接有关的系统默认菜单。这个属性可以让你禁用系统默认菜单。
+ * -webkit-font-smoothing 属性
+   字体平滑,该属性定义文本的平滑属性。
+   目前该属性已从W3C标准中移除，慎用！
+   none	不平滑，字体具有锯齿锋利边缘，适用于小像素的文本。
+   subpixel-antialiased	使用亚像素平滑。
+   antialiased	使用灰阶平滑。
+ * background 
+   * background-clip  规定背景的绘制区域
+   background-clip: border-box|padding-box|content-box;
+   
+   * background-origin 属性规定 background-position 属性相对于什么位置来定位。
+   background-origin: padding-box|border-box|content-box;
+   
+   * background-attachment 属性设置背景图像是否固定或者随着页面的其余部分滚动。
+   scroll	默认值。背景图像会随着页面其余部分的滚动而移动。
+   fixed	  当页面的其余部分滚动时，背景图像不会移动。
+   inherit	规定应该从父元素继承 background-attachment 属性的设置。
+ * mvvm
+   * model: 模型
+   * view: 视图
+   * viewmodel: 连接视图和模型
+   * e.g.  vue.js
+   model: 模型 原生javascript对象
+   view: 视图 实际看到的dom结构
+   viewmodel:  vue.js提供的vue构建函数 var vm = new Vue({})创造一个实例
 
 ## css编码技巧
  * 提高代码可维护性要尽量减少改动时要编辑的地方
