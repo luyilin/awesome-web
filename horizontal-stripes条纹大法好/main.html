@@ -28,8 +28,14 @@
             background: linear-gradient(to bottom right, #fb3 50%, #58a 0);
             /*background-size: 2em 2em; 不能生成细条纹*/
         }
+        .div17 {
+            background: repeating-linear-gradient(45deg, transparent, transparent 15px, #fff 0, #fff 16px),
+            repeating-linear-gradient(135deg, transparent, transparent 15px, #fff 0, #fff 16px), #58a;
+            /*background-size: 2.5em 2.5em;*/
+        }
+        /* 斜田字格 */
         .div4 {
-            background: linear-gradient(45deg, #fb3 25%, #58a 0, #58a 50%, #fb3 0, #fb3 75%, #58a 0);
+            background: linear-gradient(45deg, transparent 25%, #58a 0, #58a 50%, transparent 0, transparent 75%, #58a 0);
             /*background: linear-gradient(45deg,  #58a 50%, #fb3 0);*/
             /*background: linear-gradient(45deg,  #fb3 75%, #58a 0);*/
             /*background: linear-gradient(45deg, #fb3 25%, #58a 0);*/
@@ -148,6 +154,7 @@
     <div class="div3"></div>
     <div class="div4"></div>
     <div class="div5"></div>
+    <div class="div17"></div>
     <div class="div6"></div>
     <div class="div7"></div>
     <div class="div8"></div>

@@ -2,7 +2,7 @@
 
 ##《揭秘css》小练习
 
-## css 属性
+## web
  * hsla(色调,饱和度,亮度,透明度) 色调0-360,0、360红色,120绿色,240蓝色,注意饱和度必须写成百分比形式,建议使用hsla而不是rgba,因为它的字符长度更短，重复率更低。
  * currentColor 当前标签继承的文字颜色,适用于自动与文本颜色保持一致的属性
  * background-clip属性,border-box 背景剪裁至边框 padding-box 背景剪裁至内边框 content-box 背景剪裁至内容框
