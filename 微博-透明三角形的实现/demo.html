@@ -102,30 +102,22 @@
 <script>
     ( () => {
         var tab = document.getElementsByClassName('tab-single');
-        tab.forEach((i) => {
-            toggle(tab[i],'current');
-            tab[i].addEventListener('click', () => {
-                console.log(this)
-                var a = this.getElementsByClassName('triangle-1')[0];
-                var b = this.getElementsByClassName('b2')[0];
-                toggle(a, 'transparent');
-                console.log(b)
-                toggleBorder(b);
+        // 类数组不具有如 push forEach indexOf 等数组对象具有的方法, 类数组借用数组方法 ES6
+        // 或 [].forEach.call(document.getElementsByClassName('myClass'), function(v,i,a) {})
+        Array.from(tab).forEach(i=>{
+            i.addEventListener('click', () => {
+                Array.from(tab).forEach(j=>{
+                    let a = j.getElementsByClassName('triangle-1')[0];
+                    let b = j.getElementsByClassName('b2')[0];
+                    a.classList.remove('transparent');
+                    b.classList.add('transparent-border');
+                });
+                let a = i.getElementsByClassName('triangle-1')[0];
+                let b = i.getElementsByClassName('b2')[0];
+                a.classList.add('transparent');
+                b.classList.remove('transparent-border');
             });
-//            console.log(tab.not())
-        })
-
-        function toggle(e,classname) {
-            if (e.classList.contains(classname)) {
-                return
-            }
-            e.classList.add(classname);
-        }
-        function toggleBorder(e) {
-            if (e.classList.contains('transparent-border')) {
-                e.classList.remove('transparent-border');
-            }
-        }
+        });
     })()
 </script>
 </body>

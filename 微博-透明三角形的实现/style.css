@@ -60,7 +60,7 @@ body {
     margin: 0 0 0 19px;
 }
 .transparent-border {
-    box-shadow: 0 1px 0 red;
+    box-shadow: 0 1px 0 rgba(0,0,0,.04);
 }
 .triangle {
     display: inline-block;
@@ -92,8 +92,7 @@ body {
     width: 19px;
     height: 7px;
     background-color: #fff;
-    /*box-shadow: 0 1px 0 rgba(0,0,0,.04);*/
-    box-shadow: 0 1px 0 red;
+    box-shadow: 0 1px 0 rgba(0,0,0,.04);
 }
 .lr {
     left: 0;
