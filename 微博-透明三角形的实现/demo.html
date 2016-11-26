@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+</head>
+<body>
+    <div class="wrap">
+        <ul class="tab">
+            <li class="tab-single">
+                <a>
+                    <span class="text">全部</span>
+                    <span class="b">
+                        <span class="l lr"></span>
+                        <span class="l ll"></span>
+                        <span class="b2 transparent-border">
+                            <i class="triangle triangle-1"></i>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="tab-single">
+                <a>
+                    <div class="text">原创</div>
+                    <span class="b">
+                        <span class="l lr"></span>
+                        <span class="l ll"></span>
+                        <span class="b2 transparent-border">
+                            <i class="triangle triangle-1"></i>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="tab-single">
+                <a>
+                    <div class="text">图片</div>
+                    <span class="b">
+                        <span class="l lr"></span>
+                        <span class="l ll"></span>
+                        <span class="b2 transparent-border">
+                            <i class="triangle triangle-1"></i>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="tab-single">
+                <a>
+                    <div class="text">视频</div>
+                    <span class="b">
+                        <span class="l lr"></span>
+                        <span class="l ll"></span>
+                        <span class="b2 transparent-border">
+                            <i class="triangle triangle-1"></i>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="tab-single">
+                <a>
+                    <div class="text">音乐</div>
+                    <span class="b">
+                        <span class="l lr"></span>
+                        <span class="l ll"></span>
+                        <span class="b2 transparent-border">
+                            <i class="triangle triangle-1"></i>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="tab-single">
+                <a>
+                    <div class="text">文章</div>
+                    <span class="b">
+                        <span class="l lr"></span>
+                        <span class="l ll"></span>
+                        <span class="b2 transparent-border">
+                            <i class="triangle triangle-1"></i>
+                        </span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="search">
+            <div class="search-wrap">
+                <form method="get">
+                    <input type="text" class="search-input" placeholder="搜索我关注的人的微博">
+                    <span class="search-icon">
+                        <a>
+                            <i class="fa fa-search fa-self" aria-hidden="true"></i>
+                        </a>
+                        <a>
+                            <span class="triangle triangle-2"></span>
+                        </a>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+    ( () => {
+        var tab = document.getElementsByClassName('tab-single');
+        tab.forEach((i) => {
+            toggle(tab[i],'current');
+            tab[i].addEventListener('click', () => {
+                console.log(this)
+                var a = this.getElementsByClassName('triangle-1')[0];
+                var b = this.getElementsByClassName('b2')[0];
+                toggle(a, 'transparent');
+                console.log(b)
+                toggleBorder(b);
+            });
+//            console.log(tab.not())
+        })
+
+        function toggle(e,classname) {
+            if (e.classList.contains(classname)) {
+                return
+            }
+            e.classList.add(classname);
+        }
+        function toggleBorder(e) {
+            if (e.classList.contains('transparent-border')) {
+                e.classList.remove('transparent-border');
+            }
+        }
+    })()
+</script>
+</body>
+</html>

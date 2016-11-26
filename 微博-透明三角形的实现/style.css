@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: lightblue;
+}
+.wrap {
+    width: 600px;
+    height: 38px;
+    margin: 50px auto;
+    border-radius: 3px;
+}
+.tab {
+    width: 312px;
+    float: left;
+}
+.tab-single {
+    list-style: none;
+    width: 52px;
+    height: 38px;
+    float: left;
+    font-size: 12px;
+    line-height: 38px;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+}
+.tab-single a {
+    display: block;
+}
+.tab-single a:hover {
+    color: #eb7350;
+}
+/* li 没有背景颜色, 因此 border-radius 在 li 上不起作用, 因此需要定义在 .text 上 */
+.tab-single:nth-child(1) .text {
+    border-top-left-radius: 3px;
+    /*border-bottom-left-radius: 3px;*/
+}
+.tab-single:nth-child(1) .b .lr {
+    border-bottom-left-radius: 3px;
+}
+.tab span {
+    display: block;
+}
+.text {
+    height: 31px;
+    margin-bottom: -1px;
+    background-color: #fff;
+}
+.b {
+    height: 8px;
+    position: relative;
+}
+.b2 {
+    height: 7px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0 0 0 19px;
+}
+.transparent-border {
+    box-shadow: 0 1px 0 red;
+}
+.triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #fff;
+    font-size: 0;
+    line-height: 0;
+}
+.triangle-1 {
+    border-width: 7px;
+    border-top-width: 0;
+    border-bottom-color: #fff;
+    vertical-align: top;/* 将透明三角形定位在 box 顶部 */
+}
+.transparent {
+    border-bottom-color: transparent;
+}
+.triangle-2 {
+    border-width: 5px;
+    border-bottom-width: 0;
+    border-top-color: #666;
+    vertical-align: middle;
+}
+.l {
+    position: absolute;
+    bottom: 0;
+    width: 19px;
+    height: 7px;
+    background-color: #fff;
+    /*box-shadow: 0 1px 0 rgba(0,0,0,.04);*/
+    box-shadow: 0 1px 0 red;
+}
+.lr {
+    left: 0;
+}
+.ll {
+    right: 0;
+}
+
+.search {
+    width: 288px;
+    height: 38px;
+    float: right;
+    background-color: #fff;
+    box-shadow: 0 1px 0 rgba(0,0,0,.04);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.search-wrap {
+    float: right;
+    margin: 6px 7px 0 0;
+    position: relative;
+}
+.search-input {
+    width: 120px;
+    height: 22px;
+    padding: 0 46px 0 10px;
+    outline-style: none;
+    border: none;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.15) inset;
+    line-height: 22px;
+}
+.search-input:focus {
+    border-color: #eb7350;
+    box-shadow: none;
+}
+.search-icon {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+}
+.fa-self {
+    color: #ccc;
+}
+
+/* selected element */
+::selection {
+    background: #eb7350;
+    color: #fff;
+}
