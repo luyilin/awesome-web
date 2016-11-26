@@ -5,11 +5,17 @@
 body {
     background-color: lightblue;
 }
+.changeBg {
+    background-color: lightpink;
+}
 .wrap {
+    width: 720px;
+    margin: 80px auto;
+}
+.tab-wrap {
     width: 600px;
     height: 38px;
-    margin: 50px auto;
-    border-radius: 3px;
+    float: right;
 }
 .tab {
     width: 312px;
@@ -136,6 +142,20 @@ body {
 }
 .fa-self {
     color: #ccc;
+}
+
+.h-btn {
+    padding: 10px;
+    background-color: lightseagreen;
+    text-align: center;
+    font-size: 12px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+    margin-top: 2px;
+    outline: none;
 }
 
 /* selected element */

@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="font-awesome.min.css">
 </head>
 <body>
-<button type="button" class="h-btn">Tiger ^_- </button>
-    <div class="wrap">
+<div class="wrap">
+    <button type="button" class="h-btn">change bg</button>
+    <div class="tab-wrap">
         <ul class="tab">
             <li class="tab-single">
                 <a>
@@ -100,6 +101,8 @@
             </div>
         </div>
     </div>
+</div>
+
 <script>
     ( () => {
         var tab = document.getElementsByClassName('tab-single');
@@ -119,6 +122,16 @@
                 b.classList.remove('transparent-border');
             });
         });
+
+        var body = document.getElementsByTagName('body')[0];
+        console.log(body.classList)
+        document.getElementsByClassName('h-btn')[0].addEventListener('click', () => {
+            if(body.classList.contains('changeBg')) {
+                body.classList.remove('changeBg');
+                return;
+            }
+            body.classList.add('changeBg');
+        })
     })()
 </script>
 </body>
