@@ -91,6 +91,7 @@ body {
     border-bottom-width: 0;
     border-top-color: #666;
     vertical-align: middle;
+    cursor: pointer;
 }
 .l {
     position: absolute;
@@ -156,6 +157,7 @@ body {
     float: left;
     margin-top: 2px;
     outline: none;
+    cursor: pointer;
 }
 
 /* selected element */

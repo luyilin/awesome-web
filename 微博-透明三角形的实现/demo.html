@@ -106,7 +106,7 @@
 <script>
     ( () => {
         var tab = document.getElementsByClassName('tab-single');
-        // 类数组不具有如 push forEach indexOf 等数组对象具有的方法, 类数组借用数组方法 ES6
+        // 类数组不具有如 push forEach indexOf 等数组对象具有的方法, 类数组借用数组方法 ES6  Array.form([]).forEach()
         // 或 [].forEach.call(document.getElementsByClassName('myClass'), function(v,i,a) {})
         Array.from(tab).forEach(i=>{
             i.addEventListener('click', () => {
@@ -124,7 +124,6 @@
         });
 
         var body = document.getElementsByTagName('body')[0];
-        console.log(body.classList)
         document.getElementsByClassName('h-btn')[0].addEventListener('click', () => {
             if(body.classList.contains('changeBg')) {
                 body.classList.remove('changeBg');
