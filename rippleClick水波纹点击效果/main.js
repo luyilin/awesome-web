@@ -10,8 +10,8 @@ $(function () {
         wave.css({
             width: width,
             height: width,
-            left: e.pageX - $(this).offset().left - width / 2,
-            top: e.pageY - $(this).offset().top - height / 2,
+            left: e.offsetX - width / 2,
+            top: e.offsetY - width / 2,
             background: bgColor
         });
             setTimeout(function () {

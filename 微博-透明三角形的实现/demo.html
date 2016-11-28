@@ -147,7 +147,7 @@
             // 用法 var style = window.getComputedStyle(element, [pseudoElt]);
             var waveColor = window.getComputedStyle(btn).backgroundColor;
             var rippleColor = waveColor.replace('rgb(', '').replace(')','').split(',').map((a) => {
-                return Number(a) - 10;
+                return Number(a) - 15;
             });
             rippleColor = 'rgb(' + rippleColor.join(',') + ')';
             var style = wave.style;

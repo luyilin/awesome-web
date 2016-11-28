@@ -123,7 +123,7 @@ body {
 }
 .search-wrap {
     float: right;
-    margin: 6px 7px 0 0;
+    margin: 7px 7px 0 0;
     position: relative;
 }
 .search-input {
@@ -176,7 +176,7 @@ body {
 @keyframes wave {
     to {
         transform: scale(2);
-        opacity: 2;
+        opacity: 0;
     }
 }
 
