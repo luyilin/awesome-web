@@ -123,14 +123,44 @@
             });
         });
 
-        var body = document.getElementsByTagName('body')[0];
-        document.getElementsByClassName('h-btn')[0].addEventListener('click', () => {
+        var body = document.getElementsByTagName('body')[0],
+            btn = document.getElementsByClassName('h-btn')[0];
+
+        btn.addEventListener('mousedown', (i) => {
             if(body.classList.contains('changeBg')) {
                 body.classList.remove('changeBg');
-                return;
+            } else {
+                body.classList.add('changeBg');
             }
-            body.classList.add('changeBg');
-        })
+            var btn = i.target, // target 事件属性返回事件的目标节点（触发该事件的节点) event.target
+                w = btn.clientWidth,
+                wave = document.createElement('i');
+            wave.classList.add('wave');
+            btn.appendChild(wave);
+            // var wave = document.createElement('i'); 此时 wave 是一个 string 不是一个 node ,
+            // 因此需要转换为 node 节点(wave.innerHtml = ''; btn.appendChild(wave);
+            // 或通过 父节点的 innerHtml 添加内容 wave = '<i class="wave"><i>'; var btnHtml = btn.innerHTML;btn.innerHTML = btnHtml + wave;
+
+            // var waveColor = btn.style.backgroundColor;
+            // js 获取 css 属性 btn.style.backgroundColor 只能获取标签中写的 style 属性, 无法获取标签外如 css 中定义的属性
+            // getComputedStyle 方法是只读的, 获取最终应用在元素上的所有 css 属性对象, 即使没有 css 代码, 也会把默认样式都显示出来
+            // 用法 var style = window.getComputedStyle(element, [pseudoElt]);
+            var waveColor = window.getComputedStyle(btn).backgroundColor;
+            var rippleColor = waveColor.replace('rgb(', '').replace(')','').split(',').map((a) => {
+                return Number(a) - 20;
+            });
+            rippleColor = 'rgb(' + rippleColor.join(',') + ')';
+            var style = wave.style;
+            style.width = w + 'px';
+            style.height = w + 'px';
+            style.backgroundColor = rippleColor;
+            style.left = i.offsetX - w/2 + 'px';
+            style.top = i.offsetY - w/2 + 'px';
+            setTimeout(function () {
+                btn.removeChild(wave);
+            }, 1000);
+        });
+
     })()
 </script>
 </body>

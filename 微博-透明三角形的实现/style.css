@@ -3,10 +3,12 @@
     padding: 0;
 }
 body {
-    background-color: lightblue;
+    /*background-color: lightblue;*/
+    background-color: rgb(173,216,230);
 }
 .changeBg {
-    background-color: lightpink;
+    /*background-color: lightpink;*/
+    background-color: rgb(255,182,193);
 }
 .wrap {
     width: 720px;
@@ -149,7 +151,8 @@ body {
 
 .h-btn {
     padding: 10px;
-    background-color: lightseagreen;
+    /*background-color: lightseagreen;*/
+    background-color: rgb(32,178,170);
     text-align: center;
     font-size: 12px;
     border: none;
@@ -159,6 +162,22 @@ body {
     float: left;
     margin-top: 2px;
     outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.wave {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    animation: wave .75s ease-out;
+    transform: scale(0);
+}
+@keyframes wave {
+    to {
+        transform: scale(2);
+        opacity: 2;
+    }
 }
 
 /* selected element */
