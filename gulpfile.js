@@ -62,7 +62,7 @@ gulp.task('copyImg', function() {
 gulp.task('watch', function() {
     gulp.watch(['img'], ['copyImg']);
     // gulp.watch(['style/*.less'], ['compressCss']);
-    gulp.watch('./').on('change', browserSync.reload);
+    gulp.watch('*/*').on('change', browserSync.reload);
 });
 
 gulp.task('build', ['clean'], function () {
