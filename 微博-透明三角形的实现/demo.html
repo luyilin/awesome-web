@@ -108,7 +108,7 @@
         var tab = document.getElementsByClassName('tab-single');
         // 类数组不具有如 push forEach indexOf 等数组对象具有的方法, 类数组借用数组方法 ES6  Array.form([]).forEach()
         // 或 [].forEach.call(document.getElementsByClassName('myClass'), function(v,i,a) {})
-        Array.from(tab).forEach(i=>{
+        Array.from(tab).forEach(i => {
             i.addEventListener('click', () => {
                 Array.from(tab).forEach(j=>{
                     let a = j.getElementsByClassName('triangle-1')[0];
@@ -126,7 +126,7 @@
         var body = document.getElementsByTagName('body')[0],
             btn = document.getElementsByClassName('h-btn')[0];
 
-        btn.addEventListener('mousedown', (i) => {
+        btn.addEventListener('mousedown', i => {
             if(body.classList.contains('changeBg')) {
                 body.classList.remove('changeBg');
             } else {
@@ -146,7 +146,7 @@
             // getComputedStyle 方法是只读的, 获取最终应用在元素上的所有 css 属性对象, 即使没有 css 代码, 也会把默认样式都显示出来
             // 用法 var style = window.getComputedStyle(element, [pseudoElt]);
             var waveColor = window.getComputedStyle(btn).backgroundColor;
-            var rippleColor = waveColor.replace('rgb(', '').replace(')','').split(',').map((a) => {
+            var rippleColor = waveColor.replace('rgb(', '').replace(')','').split(',').map(a => {
                 return Number(a) - 15;
             });
             rippleColor = 'rgb(' + rippleColor.join(',') + ')';
@@ -160,7 +160,6 @@
                 btn.removeChild(wave);
             }, 1000);
         });
-
     })()
 </script>
 </body>

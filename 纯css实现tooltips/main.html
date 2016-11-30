@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    .btn-hover {
+        padding: 10px;
+        color: #fff;
+        background-color: lightseagreen;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        margin: 100px;
+        cursor: pointer;
+        position: relative;
+    }
+    .btn-hover:before {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 50%;
+        top: -10px;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-top: 9px solid #666;
+    }
+    .btn-hover:after {
+        content: attr(data-tip);
+        position: absolute;
+        display: none;
+        left: 50%;
+        top: -9px;
+        transform: translateX(-50%) translateY(-100%);
+        padding: 10px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #666;
+        border-radius: 5px;
+    }
+    .btn-hover:hover:after,
+    .btn-hover:hover:before {
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+<button class="btn-hover" data-tip="tooltips">test btn</button>
+
+</body>
+</html>
