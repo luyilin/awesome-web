@@ -32,7 +32,7 @@
             var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0,
                 s = window.pageXOffset || document.body.scrollTop || document.documentElement.scrollTop || 0;
             h = h + s;
-            var t = img.offsetTop - 83;
+            var t = img.offsetTop;
                 p = img.offsetParent;
             while (p !== null) {
                 t += p.offsetTop;
@@ -56,9 +56,10 @@
             img.style.filter = 'blur(7px)';
             var blur = 7,
                 t = setInterval(function () {
-                if (blur > -1) {
+                if (blur > 0) {
                     blur = blur - 1;
                     img.style.filter = 'blur(' + blur + 'px)';
+                    console.log(blur)
                 } else {
                     clearInterval(t);
                 }
