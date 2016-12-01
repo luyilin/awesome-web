@@ -49,8 +49,8 @@
     .btn-hover-below:after, .hover-below-after {
         top: 81px;
     }
-    /*.btn-hover:hover:after, .btn-hover:hover:before,*/
-    /*.btn-hover-below:hover:after, .btn-hover-below:hover:before,*/
+    .btn-hover:hover:after, .btn-hover:hover:before,
+    .btn-hover-below:hover:after, .btn-hover-below:hover:before,
     .hover-replace{
         display: block;
     }
@@ -60,32 +60,45 @@
 
 <button class="btn-hover" data-tip="tooltips">test btn</button>
 <button class="btn-hover btn-hover-below" data-tip="tooltips">test btn</button>
-<!--<button class="btn-hover" data-tip="tooltips">test btn</button>-->
-<!--<button class="btn-hover" data-tip="tooltips">test btn</button>-->
 
 <script>
+    // 测试 if 条件句 注意要是立即执行 isIE()
+    +function a() {
+        if(false) {
+            console.log('aa');
+        }
+        console.log('b');
+    }();
+
     // 兼容不支持伪类的 ie6 / ie7 浏览器的方法
     // ie6 / ie7 / ie8 / ie9 / ie10 均不支持 data-* 自定义属性的,是的,只有ie11才支持 data-* ⊙̆̈_⊙̆̈
     // 但 xx.getAttribute('data-*') 在任何现代浏览器里均可正常使用 (๑`н´๑)
+    var isIE = function(){
+        var b = document.createElement('b');
+        b.innerHTML = '<!--[if IE]><i></i><![endif]-->';
+        return b.getElementsByTagName('i').length === 1
+    };
     function beforeAfter(dom) {
-        if (document.querySelector || !dom && dom.nodeType !== 1) return; // ie8 以下不支持 querySelector 方法
-        var content = dom.getAttribute("data-tip") || '';
-        var before = document.createElement("div"),
-            after = document.createElement("div");
-        after.innerHTML = content;
-        before.classList.add('before','hover-replace');
-        after.classList.add('after','hover-replace');
-        if (dom.classList.contains('btn-hover-below')) {
-            before.classList.add('hover-below-before');
-            after.classList.add('hover-below-after');
+        if (isIE() || !dom && dom.nodeType !== 1) {
+            var content = dom.getAttribute("data-tip") || '';
+            var before = document.createElement("div"),
+                    after = document.createElement("div");
+            after.innerHTML = content;
+            before.classList.add('before','hover-replace');
+            after.classList.add('after','hover-replace');
+            if (dom.classList.contains('btn-hover-below')) {
+                before.classList.add('hover-below-before');
+                after.classList.add('hover-below-after');
+            }
+            dom.insertBefore(before, dom.firstChild);
+            dom.appendChild(after);
         }
-        dom.insertBefore(before, dom.firstChild);
-        dom.appendChild(after);
     }
+
     var btn = document.getElementsByClassName('btn-hover');
 
     // 解决 当用户的鼠标进入或者移开一个被嵌套的子元素上时，mouseover 和 mouseout 事件会通过这个子元素触发 的 bug
-    // 或 jquery 的 mouseenten mouseleave 事件, 已处理此类情况
+    // 或 jquery 的 mouseenten mouseleave 事件, 已 fix 此问题
     Array.from(btn).forEach(i => {
         function removeChild() {
             var child = i.childNodes;
