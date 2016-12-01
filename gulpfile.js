@@ -21,9 +21,10 @@ gulp.task('clean', function() {
 gulp.task('browser-sync', function () {
     browserSync.init({
         server: {
-            baseDir: './'
+            baseDir: './',
+            directory: true // 显示目录
         },
-        startPath: '/'
+        startPath: './'
     })
 });
 
@@ -60,7 +61,7 @@ gulp.task('copyImg', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(['img'], ['copyImg']);
+    gulp.watch(['img/*'], ['copyImg']);
     // gulp.watch(['style/*.less'], ['compressCss']);
     gulp.watch('*/*').on('change', browserSync.reload);
 });

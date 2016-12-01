@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片预加载</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		.showPic {
+			width: 100%;
+			max-width: 100%;
+		}
+		.showPic:active {
+			opacity: 0.8
+		}
+		a {
+			-webkit-touch-callout: none;
+			text-decoration: none;
+		}
+		a:focus { 
+			outline:0
+		}
+		.wrap {
+			line-height: 0;
+			/*解决a标签包裹img产生4px间隙的问题：*/
+		}
+	</style>
+</head>
+<body>
+<div class="wrap"></div>
+<script type="text/javascript">
+	function showPic(arr) {
+		var arr = JSON.parse(arr);
+		var div = document.getElementsByTagName("div")[0];
+		var picArr = div.childNodes;
+		if (picArr.length) {
+			for(var j=picArr.length-1; j>=0; j--){
+        		picArr[j].parentNode.removeChild(picArr[j]);
+			}
+		}
+		arr.forEach(function(e) {
+			var img = new Image();
+			var load = new Image();
+			var link = document.createElement('a');
+			load.src = '../dist/img/loading.jpg'; // loading图片
+			img.src = e;
+			img.onload = function() {
+				load.src = e;	
+			};
+			load.setAttribute("class", "showPic");
+//			link.setAttribute("href", e);
+			link.appendChild(load);
+			div.appendChild(link);
+		})
+	}
+	showPic('["https://ooo.0o0.ooo/2016/10/11/57fc7d2e9b33a.jpg","https://ooo.0o0.ooo/2016/10/11/57fc7d6e0d576.jpg"]');
+</script>
+</body>
+</html>

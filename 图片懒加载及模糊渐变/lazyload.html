@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>知乎图片滚动加载及模糊效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            width: 200px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+    <img src="../dist/img/test.jpg" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" alt="">
+
+<script>
+    var n = 0;
+    var lazyLoad = {
+        isLoad : function (img) {
+            var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0,
+                s = window.pageXOffset || document.body.scrollTop || document.documentElement.scrollTop || 0;
+            h = h + s;
+            var t = img.offsetTop - 83;
+                p = img.offsetParent;
+            while (p !== null) {
+                t += p.offsetTop;
+                p = p.offsetParent;
+            }
+            return h - t;
+        },
+        loadImg : function (img, isBlur) {
+            for(let i = n; i < img.length; i++) {
+                let isLoad = this.isLoad(img[i]) > 0 ? 1 : 0;
+                if(isLoad && img[i].getAttribute('src') === '../dist/img/test.jpg') {
+                    img[i].src = img[i].getAttribute('data-src');
+                    n = i + 1;
+                    if(isBlur) {
+                        this.isBlur(img[i]);
+                    }
+                }
+            }
+        },
+        isBlur : function (img) {
+            img.style.filter = 'blur(7px)';
+            var blur = 7,
+                t = setInterval(function () {
+                if (blur > -1) {
+                    blur = blur - 1;
+                    img.style.filter = 'blur(' + blur + 'px)';
+                } else {
+                    clearInterval(t);
+                }
+            }, 50)
+        }
+    };
+
+    var img = document.getElementsByTagName('img');
+    window.onload = function() {
+        lazyLoad.loadImg(img, false);
+    };
+    window.onscroll = function() {
+        lazyLoad.loadImg(img, true);
+    };
+</script>
+</body>
+</html>
