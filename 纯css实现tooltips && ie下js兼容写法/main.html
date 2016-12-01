@@ -49,8 +49,8 @@
     .btn-hover-below:after, .hover-below-after {
         top: 81px;
     }
-    .btn-hover:hover:after, .btn-hover:hover:before,
-    .btn-hover-below:hover:after, .btn-hover-below:hover:before,
+    /*.btn-hover:hover:after, .btn-hover:hover:before,*/
+    /*.btn-hover-below:hover:after, .btn-hover-below:hover:before,*/
     .hover-replace{
         display: block;
     }
@@ -72,7 +72,7 @@
     }();
 
     // 兼容不支持伪类的 ie6 / ie7 浏览器的方法
-    // ie6 / ie7 / ie8 / ie9 / ie10 均不支持 data-* 自定义属性的,是的,只有ie11才支持 data-* ⊙̆̈_⊙̆̈
+    // ie6 / ie7 / ie8 / ie9 / ie10 均不支持 data-* 自定义属性的,是的,只有ie11才支持 data-*
     // 但 xx.getAttribute('data-*') 在任何现代浏览器里均可正常使用 (๑`н´๑)
     var isIE = function(){
         var b = document.createElement('b');
@@ -80,11 +80,11 @@
         return b.getElementsByTagName('i').length === 1
     };
     function beforeAfter(dom) {
-        if (isIE() || !dom && dom.nodeType !== 1) {
+//        if (isIE() || !dom && dom.nodeType !== 1) {
             var content = dom.getAttribute("data-tip") || '';
             var before = document.createElement("div"),
-                    after = document.createElement("div");
-            after.innerHTML = content;
+                after = document.createElement("div");
+            after.innerText = content;
             before.classList.add('before','hover-replace');
             after.classList.add('after','hover-replace');
             if (dom.classList.contains('btn-hover-below')) {
@@ -93,7 +93,8 @@
             }
             dom.insertBefore(before, dom.firstChild);
             dom.appendChild(after);
-        }
+//            console.log(before,after)
+//        }
     }
 
     var btn = document.getElementsByClassName('btn-hover');
