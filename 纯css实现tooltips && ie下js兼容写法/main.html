@@ -49,8 +49,8 @@
     .btn-hover-below:after, .hover-below-after {
         top: 81px;
     }
-    /*.btn-hover:hover:after, .btn-hover:hover:before,*/
-    /*.btn-hover-below:hover:after, .btn-hover-below:hover:before,*/
+    .btn-hover:hover:after, .btn-hover:hover:before,
+    .btn-hover-below:hover:after, .btn-hover-below:hover:before,
     .hover-replace{
         display: block;
     }
@@ -80,21 +80,21 @@
         return b.getElementsByTagName('i').length === 1
     };
     function beforeAfter(dom) {
-//        if (isIE() || !dom && dom.nodeType !== 1) {
+        if (isIE() || !dom && dom.nodeType !== 1) {
             var content = dom.getAttribute("data-tip") || '';
             var before = document.createElement("div"),
-                after = document.createElement("div");
+                    after = document.createElement("div");
             after.innerText = content;
-            before.classList.add('before','hover-replace');
-            after.classList.add('after','hover-replace');
+            before.classList.add('before', 'hover-replace');
+            after.classList.add('after', 'hover-replace');
             if (dom.classList.contains('btn-hover-below')) {
                 before.classList.add('hover-below-before');
                 after.classList.add('hover-below-after');
             }
             dom.insertBefore(before, dom.firstChild);
             dom.appendChild(after);
-//            console.log(before,after)
 //        }
+        }
     }
 
     var btn = document.getElementsByClassName('btn-hover');
@@ -113,6 +113,7 @@
                 }
             }
         }
+
         i.addEventListener('mouseover', function () {
             removeChild();
             beforeAfter(i);
