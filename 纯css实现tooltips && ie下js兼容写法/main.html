@@ -11,17 +11,22 @@
         outline: none;
         border: none;
         border-radius: 5px;
-        margin: 70px;
+        margin: 70px 40px;
         cursor: pointer;
         position: relative;
     }
+    .btn-hover:before, .before,
+    .btn-hover:after, .after {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        /*禁止鼠标事件,元素不会成为鼠标事件的 target */
+        left: 50%;
+        transform: translate(-50%, -23px);
+        transition: all ease-in-out 0.2s;
+    }
     .btn-hover:before, .before {
         content: "";
-        position: absolute;
-        display: none;
-        left: 50%;
-        top: -10px;
-        transform: translateX(-50%);
         width: 0;
         height: 0;
         border: 6px solid transparent;
@@ -29,11 +34,7 @@
     }
     .btn-hover:after, .after {
         content: attr(data-tip);
-        position: absolute;
-        display: none;
-        left: 50%;
-        top: -9px;
-        transform: translateX(-50%) translateY(-100%);
+        transform: translate(-50%, -60px);
         padding: 10px;
         font-size: 14px;
         color: #fff;
@@ -43,23 +44,37 @@
         white-space: pre-wrap;
     }
     .btn-hover-below:before, .hover-below-before{
-        top: 30px;
-        transform: translateX(-50%) rotate(180deg);
+        transform: translate(-50%, 23px) rotate(180deg);
     }
     .btn-hover-below:after, .hover-below-after {
-        top: 81px;
+        transform: translate(-50%, 38px);
     }
     .btn-hover:hover:after, .btn-hover:hover:before,
     .btn-hover-below:hover:after, .btn-hover-below:hover:before,
     .hover-replace{
-        display: block;
+        opacity: 1;
+        pointer-events: auto;
+        /* 与 pointer-events 属性未指定时的表现效果相同*/
+    }
+    .btn-hover-slide:before {
+        transform: translate(-50%, -5px);
+    }
+    .btn-hover-slide:after {
+        transform: translate(-50%,-23px);
+    }
+    .btn-hover-slide:hover:before {
+        transform: translate(-50%, -23px);
+    }
+    .btn-hover-slide:hover:after {
+        transform: translate(-50%, -60px);
     }
 </style>
 </head>
 <body>
 
-<button class="btn-hover" data-tip="tooltips">test btn</button>
-<button class="btn-hover btn-hover-below" data-tip="tooltips">test btn</button>
+<button class="btn-hover" data-tip="tooltips">tooltips above</button>
+<button class="btn-hover btn-hover-below" data-tip="tooltips">tooltips below</button>
+<button class="btn-hover btn-hover-slide" data-tip="tooltips">tooltips slideUp</button>
 
 <script>
     // 测试 if 条件句 注意要是立即执行 isIE()
