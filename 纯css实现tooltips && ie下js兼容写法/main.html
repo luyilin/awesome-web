@@ -101,32 +101,32 @@
         -webkit-animation:a .56s ease-in-out;
         animation:a .56s ease-in-out
     }
-    @-webkit-keyframes a{
-        0%,to{
-            -webkit-transform:rotate(0deg);
-            transform:rotate(0deg)
+    @-webkit-keyframes a {
+        0%, to {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg)
         }
-        20%,60%{
+        20%, 60%{
             -webkit-transform:rotate(-25deg);
             transform:rotate(-25deg)
         }
-        40%,80%{
-            -webkit-transform:rotate(10deg);
-            transform:rotate(10deg)
+        40%, 80%{
+            -webkit-transform: rotate(10deg);
+            transform: rotate(10deg)
         }
     }
-    @keyframes a{
-        0%,to{
-            -webkit-transform:rotate(0deg);
-            transform:rotate(0deg)
+    @keyframes a {
+        0%, to{
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg)
         }
-        20%,60%{
-            -webkit-transform:rotate(-25deg);
-            transform:rotate(-25deg)
+        20%, 60%{
+            -webkit-transform: rotate(-25deg);
+            transform: rotate(-25deg)
         }
-        40%,80%{
-            -webkit-transform:rotate(10deg);
-            transform:rotate(10deg)
+        40%, 80%{
+            -webkit-transform: rotate(10deg);
+            transform: rotate(10deg)
         }
     }
 </style>
@@ -197,11 +197,11 @@
             }
         }
 
-        i.addEventListener('mouseover', function () {
+        i.addEventListener('mouseover', () => {
             removeChild();
             beforeAfter(i);
         });
-        i.addEventListener('mouseout', function () {
+        i.addEventListener('mouseout', () => {
             removeChild();
         });
     })

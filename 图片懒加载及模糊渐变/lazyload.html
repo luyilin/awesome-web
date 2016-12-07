@@ -55,7 +55,7 @@
         isBlur : function (img) {
             img.style.filter = 'blur(7px)';
             var blur = 7,
-                t = setInterval(function () {
+                t = setInterval(() => {
                 if (blur > 0) {
                     blur = blur - 1;
                     img.style.filter = 'blur(' + blur + 'px)';
@@ -67,12 +67,19 @@
     };
 
     var img = document.getElementsByTagName('img');
-    window.onload = function() {
+    window.onload = () => {
         lazyLoad.loadImg(img, false);
     };
-    window.onscroll = function() {
+    window.onscroll = () => {
         lazyLoad.loadImg(img, true);
     };
+
+    // ES6 箭头函数
+    // 箭头函数没有自己的 this 值,它的 this 值是继承自外部作用域
+    // 通过object.method()语法调用的方法使用非箭头函数定义，因为这些函数需要从调用者的作用域中获取一个有意义的this值。
+    // 其它情况全都使用箭头函数。
+    // 如上 isBlur 方法从它的调用者处获取了 this 值, 内部函数 setInterval 是一个箭头函数, 它继承了外部作用域的 this
+
 </script>
 </body>
 </html>
