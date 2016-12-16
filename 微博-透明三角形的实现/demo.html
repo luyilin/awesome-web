@@ -108,20 +108,41 @@
         var tab = document.getElementsByClassName('tab-single');
         // 类数组不具有如 push forEach indexOf 等数组对象具有的方法, 类数组借用数组方法 ES6  Array.form([]).forEach()
         // 或 [].forEach.call(document.getElementsByClassName('myClass'), function(v,i,a) {})
-        Array.from(tab).forEach(i => {
-            i.addEventListener('click', () => {
-                Array.from(tab).forEach(j=>{
-                    let a = j.getElementsByClassName('triangle-1')[0];
-                    let b = j.getElementsByClassName('b2')[0];
-                    a.classList.remove('transparent');
-                    b.classList.add('transparent-border');
-                });
-                let a = i.getElementsByClassName('triangle-1')[0];
-                let b = i.getElementsByClassName('b2')[0];
-                a.classList.add('transparent');
+
+//        Array.from(tab).forEach(i => {
+//            i.addEventListener('click', () => {
+//                console.log(tab.length,i)
+//                Array.from(tab).forEach(j=>{
+//                    let a = j.getElementsByClassName('triangle-1')[0];
+//                    let b = j.getElementsByClassName('b2')[0];
+//                    a.classList.remove('transparent');
+//                    b.classList.add('transparent-border');
+//                });
+//                let a = i.getElementsByClassName('triangle-1')[0];
+//                let b = i.getElementsByClassName('b2')[0];
+//                a.classList.add('transparent');
+//                b.classList.remove('transparent-border');
+//            });
+//        });
+
+        for(let i = 0; i < tab.length; i++) {
+            tab[i].addEventListener('click', () => {
+                changeTab(i)
+            })
+        }
+
+        function changeTab(i) {
+            let a = document.getElementsByClassName('transparent')[0];
+            let b = document.getElementsByClassName('transparent-border')[0];
+            if (a) {
+                a.classList.remove('transparent')
+            }
+            document.getElementsByClassName('triangle-1')[i].classList.add('transparent');
+            if (b) {
                 b.classList.remove('transparent-border');
-            });
-        });
+            }
+            document.getElementsByClassName('b2')[i].classList.add('transparent-border');
+        }
 
         var body = document.getElementsByTagName('body')[0],
             btn = document.getElementsByClassName('h-btn')[0];
