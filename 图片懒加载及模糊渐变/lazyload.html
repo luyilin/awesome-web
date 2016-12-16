@@ -28,7 +28,7 @@
 <script>
     var n = 0;
     var lazyLoad = {
-        isLoad : function (img) {
+        isLoad(img) {
             var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0,
                 s = window.pageXOffset || document.body.scrollTop || document.documentElement.scrollTop || 0;
             h = h + s;
@@ -40,7 +40,7 @@
             }
             return h - t;
         },
-        loadImg : function (img, isBlur) {
+        loadImg(img, isBlur) {
             for(let i = n; i < img.length; i++) {
                 let isLoad = this.isLoad(img[i]) > 0 ? 1 : 0;
                 if(isLoad && img[i].getAttribute('src') === '../dist/img/test.jpg') {
@@ -52,7 +52,7 @@
                 }
             }
         },
-        isBlur : function (img) {
+        isBlur(img) {
             img.style.filter = 'blur(7px)';
             var blur = 7,
                 t = setInterval(() => {
@@ -79,6 +79,17 @@
     // 通过object.method()语法调用的方法使用非箭头函数定义，因为这些函数需要从调用者的作用域中获取一个有意义的this值。
     // 其它情况全都使用箭头函数。
     // 如上 isBlur 方法从它的调用者处获取了 this 值, 内部函数 setInterval 是一个箭头函数, 它继承了外部作用域的 this
+
+    // ECMAScript从ECMAScript6开始，引入了一种更简短的在对象初始器中定义方法的语法，这是一种把方法名直接赋给函数的简写方式。
+    // 语法
+//    var obj = {
+//        property([parameters]) {},
+//        get property() {},
+//        set property(value) {},
+//        * generator() {}
+//        // function* name(){},定义一个 generator (生成器)函数,返回一个 generator 对象
+//        // * name(){}是简写语法
+//    };
 
 </script>
 </body>
