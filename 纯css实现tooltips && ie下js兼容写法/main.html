@@ -166,7 +166,7 @@
         if (isIE() || !dom && dom.nodeType !== 1) {
             var content = dom.getAttribute("data-tip") || '';
             var before = document.createElement("div"),
-                    after = document.createElement("div");
+                after = document.createElement("div");
             after.innerText = content;
             before.classList.add('before', 'hover-replace');
             after.classList.add('after', 'hover-replace');
@@ -183,13 +183,14 @@
     var btn = document.getElementsByClassName('btn-hover');
 
     // 解决 当用户的鼠标进入或者移开一个被嵌套的子元素上时，mouseover 和 mouseout 事件会通过这个子元素触发 的 bug
-    // 或 jquery 的 mouseenten mouseleave 事件, 已 fix 此问题
+    // 或使用 jquery 的 mouseenten mouseleave 事件, jquery 已 fix 此问题
     Array.from(btn).forEach(i => {
         function removeChild() {
             var child = i.childNodes;
             if (child.length) {
                 for (let j = child.length - 1; j >= 0; j--) {
                     if (child[j].nodeType !== 3) {
+                        // nodeType 1 元素 element, 2 属性 attr,3 文本 text
 //                        child[j].parentNode.removeChild(child[j]);
                         i.removeChild(child[j]);
                     }
