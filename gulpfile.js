@@ -70,6 +70,4 @@ gulp.task('build', ['clean'], function () {
     gulp.start('copyImg', 'browser-sync', 'watch');
 });
 
-gulp.task('default', function () {
-    gulp.start('copyImg', 'browser-sync', 'watch');
-});
+gulp.task('default', ['copyImg', 'browser-sync', 'watch']);
