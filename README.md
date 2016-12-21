@@ -2,7 +2,7 @@
 
 ## Demo
 
-[blur千呼万唤始出来的毛玻璃效果](href: https://luyilin.github.io/awesome-web/blur%E5%8D%83%E5%91%BC%E4%B8%87%E5%94%A4%E5%A7%8B%E5%87%BA%E6%9D%A5%E7%9A%84%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/main.html)
+[blur千呼万唤始出来的毛玻璃效果][https://luyilin.github.io/awesome-web/blur%E5%8D%83%E5%91%BC%E4%B8%87%E5%94%A4%E5%A7%8B%E5%87%BA%E6%9D%A5%E7%9A%84%E6%AF%9B%E7%8E%BB%E7%92%83%E6%95%88%E6%9E%9C/main.html]
 [horizontal-stripes条纹大法好](href: https://luyilin.github.io/awesome-web/horizontal-stripes%E6%9D%A1%E7%BA%B9%E5%A4%A7%E6%B3%95%E5%A5%BD/main.html)
 [按钮水波纹点击效果](href: https://luyilin.github.io/awesome-web/rippleClick%E6%B0%B4%E6%B3%A2%E7%BA%B9%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C/btnClick.html)
 [rippleClick水波纹点击效果](href: https://luyilin.github.io/awesome-web/rippleClick%E6%B0%B4%E6%B3%A2%E7%BA%B9%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C/rippleClick.html)
@@ -14,6 +14,6 @@
 
 ## How to run
 
-``` $ npm install
-    $ gulp
-```
+```$ npm install```
+
+```$ gulp ```
