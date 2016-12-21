@@ -22,6 +22,10 @@
 
 ## How to run
 
-```$ npm install```
+```
+$ npm install
 
-```$ gulp ```
+$ gulp
+```
+
+### Can u catch the Easter egg ? (๑•́ωก̀๑)
