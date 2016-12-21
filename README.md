@@ -10,9 +10,7 @@
 
 <a href="https://luyilin.github.io/awesome-web/rippleClick%E6%B0%B4%E6%B3%A2%E7%BA%B9%E7%82%B9%E5%87%BB%E6%95%88%E6%9E%9C/rippleClick.html">rippleClick水波纹点击效果</a>
 
-<a href="">translucent-borders半透明边框</a>
-
-<a href="https://luyilin.github.io/awesome-web/translucent-borders%E5%8D%8A%E9%80%8F%E6%98%8E%E8%BE%B9%E6%A1%86/main.html"></a>
+<a href="https://luyilin.github.io/awesome-web/translucent-borders%E5%8D%8A%E9%80%8F%E6%98%8E%E8%BE%B9%E6%A1%86/main.html">translucent-borders半透明边框</a>
 
 <a href="https://luyilin.github.io/awesome-web/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%A8%A1%E7%B3%8A%E6%B8%90%E5%8F%98/lazyload.html">图片懒加载及模糊渐变</a>
 
