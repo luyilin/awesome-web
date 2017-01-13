@@ -11,13 +11,14 @@
 			text-align: center;
 		}
 		.showPic {
-			width: 100%;
-			max-width: 100%;
+			/*width: 100%;*/
+			/*max-width: 100%;*/
 		}
 		.showPic:active {
 			opacity: 0.8
 		}
 		a {
+			display: block;
 			-webkit-touch-callout: none;
 			text-decoration: none;
 		}
@@ -27,6 +28,10 @@
 		.wrap {
 			line-height: 0;
 			/*解决a标签包裹img产生4px间隙的问题：*/
+		}
+        img {
+			width: 400px;
+			/*height: px;*/
 		}
 	</style>
 </head>
@@ -52,7 +57,7 @@
 				load.src = e;	
 			};
 			load.setAttribute("class", "showPic");
-//			link.setAttribute("href", e);
+			link.setAttribute("href", e);
 			link.appendChild(load);
 			div.appendChild(link);
 		})
