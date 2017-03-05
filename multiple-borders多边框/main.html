@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>box-shadow实现多层边框</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>box-shadow实现多层边框</title>
 </head>
+<style>
+  .wrap {
+    width: 200px;
+    height: 100px;
+    margin: 30px;
+    background: yellowgreen;
+    -webkit-box-shadow: 0 0 0 10px #655,
+    0 0 0 18px deeppink,
+    0 2px 5px 18px rgba(0,0,0,.6);
+    /*
+    1. box-shadow 添加多个内外边框,多个边框均从盒模型外层开始绘制,前面的边框在上层
+    2. box-shadow 不占位border
+    */
+  }
+</style>
 <body>
-    <div class="wrap"></div>
+  <div class="wrap"></div>
 </body>
 </html>
