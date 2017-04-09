@@ -20,6 +20,12 @@
 
 <a href="https://luyilin.github.io/awesome-web/%E7%BA%AFcss%E5%AE%9E%E7%8E%B0tooltips%20&&%20ie%E4%B8%8Bjs%E5%85%BC%E5%AE%B9%E5%86%99%E6%B3%95/main.html">纯css实现tooltips && ie下js兼容写法</a>
 
+[psd-test 官网首页](https://luyilin.github.io/awesome-web/psd-test知知教育官网/main.html)
+
+[倒计时](https://luyilin.github.io/awesome-web/倒计时/index.html)
+
+[伪元素实现 hover 时 border-bottom展开效果](https://luyilin.github.io/awesome-web/伪元素实现border-bottom展开效果/index.html)
+
 ## How to run
 
 ```
