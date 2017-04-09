@@ -13,4 +13,3 @@ node_modules/
 .git
 *.apk
 test/
-build/
